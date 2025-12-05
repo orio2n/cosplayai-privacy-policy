@@ -8,18 +8,13 @@
         :root {
             --primary: #935fdb;
             --primary-dark: #572cba;
-            --accent: #03DAC5;
-            --text-main: #1F2937;
-            --text-secondary: #6B7280;
             --bg-body: #F3F4F6;
             --bg-card: #FFFFFF;
+            --text-main: #1F2937;
+            --text-secondary: #6B7280;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -28,7 +23,6 @@
             line-height: 1.6;
         }
 
-        /* Header / Hero Section */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             padding: 60px 20px 80px;
@@ -36,168 +30,54 @@
             color: white;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-        }
+        header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+        header p { opacity: 0.9; font-size: 1.1rem; }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Main Layout */
-        .wrapper {
-            max-width: 900px;
-            margin: -50px auto 50px;
-            padding: 0 20px;
-        }
+        .wrapper { max-width: 900px; margin: -50px auto 50px; padding: 0 20px; }
 
         .card {
             background: var(--bg-card);
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
         }
 
-        /* Navigation Tabs */
-        .tabs {
-            display: flex;
-            background: #FAFAFA;
-            border-bottom: 1px solid #E5E7EB;
-        }
-
+        .tabs { display: flex; background: #FAFAFA; border-bottom: 1px solid #E5E7EB; }
         .tab-btn {
-            flex: 1;
-            padding: 20px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-            position: relative;
+            flex: 1; padding: 20px; border: none; background: none; cursor: pointer;
+            font-size: 1rem; font-weight: 600; color: var(--text-secondary);
+            position: relative; transition: all 0.3s;
         }
-
-        .tab-btn:hover {
-            background: #F3F4F6;
-            color: var(--primary);
-        }
-
-        .tab-btn.active {
-            color: var(--primary);
-            background: white;
-        }
-
+        .tab-btn:hover { background: #F3F4F6; color: var(--primary); }
+        .tab-btn.active { color: var(--primary); background: white; }
         .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary);
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--primary);
         }
 
-        /* Content Area */
-        .content {
-            padding: 40px;
-            min-height: 400px;
-        }
+        .content { padding: 40px; }
+        .page-section { display: none; animation: fadeIn 0.4s ease; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        .page-section {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
+        h2 { font-size: 1.8rem; margin-bottom: 25px; border-bottom: 2px solid #F3F4F6; padding-bottom: 15px; }
+        h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 10px; color: var(--primary-dark); }
+        p { margin-bottom: 15px; color: #374151; }
+        ul { margin-bottom: 20px; padding-left: 25px; }
+        li { margin-bottom: 8px; color: #374151; }
+        strong { color: var(--text-main); }
+        .last-updated { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 30px; font-style: italic; }
 
-        .page-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Typography inside content */
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: var(--text-main);
-            border-bottom: 2px solid #F3F4F6;
-            padding-bottom: 15px;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            color: var(--primary-dark);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #374151;
-        }
-
-        ul {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #374151;
-        }
-
-        strong {
-            color: var(--text-main);
-        }
-
-        .last-updated {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        /* Contact Box */
         .contact-box {
-            background-color: #F5F3FF;
-            border: 1px solid #DDD6FE;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 40px;
+            background-color: #F5F3FF; border: 1px solid #DDD6FE;
+            padding: 20px; border-radius: 8px; margin-top: 40px;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding: 20px;
-        }
+        footer { text-align: center; color: var(--text-secondary); font-size: 0.9rem; padding: 20px; }
 
-        /* Mobile Responsive */
         @media (max-width: 600px) {
-            header { padding: 40px 20px 70px; }
-            header h1 { font-size: 2rem; }
-            .content { padding: 25px; }
             .tabs { flex-direction: column; }
-            .tab-btn { border-bottom: 1px solid #eee; }
-            .tab-btn.active::after {
-                width: 4px;
-                height: 100%;
-                left: 0;
-                top: 0;
-            }
+            .content { padding: 25px; }
         }
     </style>
 </head>
@@ -205,7 +85,7 @@
 
     <header>
         <h1>CosplayAI</h1>
-        <p>Legal Information Center</p>
+        <p>Transparency & Legal Center</p>
     </header>
 
     <div class="wrapper">
@@ -222,78 +102,89 @@
                 <!-- PRIVACY POLICY PAGE -->
                 <div id="privacy" class="page-section active">
                     <h2>Privacy Policy</h2>
-                    <p class="last-updated">Last Updated: December 2, 2025</p>
+                    <p class="last-updated">Last Updated: December 5, 2025</p>
 
-                    <p>At <strong>CosplayAI</strong>, we are committed to protecting your privacy. This policy outlines how we handle your data. We have designed our service to collect the absolute minimum amount of information required to function.</p>
+                    <p>At <strong>CosplayAI</strong>, we value your trust. This Privacy Policy explains what data we collect, why we collect it, and how you can manage your information. We have designed our system to be as private as possible while still offering features like your personal Gallery history.</p>
 
-                    <h3>1. Data We Collect</h3>
-                    <p>We only collect one piece of Personal Identifiable Information (PII):</p>
+                    <h3>1. Information We Collect</h3>
+                    <p>We collect the following types of information to provide our services:</p>
                     <ul>
-                        <li><strong>Email Address:</strong> We collect your email address for the sole purpose of creating your account, maintaining your credit balance/subscription status, and providing customer support.</li>
-                    </ul>
-                    <p>We do <strong>not</strong> collect names, phone numbers, or physical addresses.</p>
-
-                    <h3>2. Image Processing & Privacy</h3>
-                    <p>Your privacy regarding your photos is our top priority. Our image handling process is as follows:</p>
-                    <ul>
-                        <li><strong>No Storage:</strong> We do <strong>not</strong> store, save, or archive any photos you upload or the images generated by the app.</li>
-                        <li><strong>Zero Face Data Collection:</strong> We do not extract, store, or share facial geometry or biometric data.</li>
-                        <li><strong>Transient Processing:</strong> When you use the app, your image is sent directly to the Google Gemini API for immediate processing and returned to your device. Once the transaction is complete, the data is not retained by us.</li>
+                        <li><strong>Account Information:</strong> When you sign up via Google or Email, we collect your email address and a unique user identifier (UID) to secure your account and manage your credit balance.</li>
+                        <li><strong>User Content (Images):</strong> We collect the photos you upload and the images generated by our AI.</li>
+                        <li><strong>Usage Data:</strong> We may collect anonymous data regarding feature usage (e.g., which styles are most popular) to improve the app experience.</li>
                     </ul>
 
-                    <h3>3. Third-Party Services</h3>
-                    <p>To provide our services, we utilize the following third-party providers:</p>
+                    <h3>2. How We Store Your Images</h3>
+                    <p>Unlike many other apps, we define strict boundaries on how your images are handled:</p>
                     <ul>
-                        <li><strong>Google Gemini API:</strong> Used exclusively for the AI image generation process.</li>
-                        <li><strong>Google Firebase:</strong> Used for secure authentication (logging in with your email) and database management (storing your credit balance).</li>
+                        <li><strong>Personal Gallery Storage:</strong> Your uploaded images and generated results are stored securely in a private cloud container (Google Firebase Storage) linked specifically to your User UID. This allows us to display your "My Creations" history and lets you edit previous works.</li>
+                        <li><strong>No Public Sharing:</strong> We do <strong>not</strong> share your images publicly. They are only visible to you unless you explicitly choose to share them yourself.</li>
+                        <li><strong>AI Processing:</strong> To generate results, your image is temporarily processed by our AI providers (Google Gemini API). These providers are contractually obligated not to use your images for training their public models without consent.</li>
                     </ul>
 
-                    <h3>4. Data Security</h3>
-                    <p>Although we do not store your images, we ensure that your email address and credit balance are stored securely using industry-standard encryption provided by Google Firebase.</p>
+                    <h3>3. Third-Party Processors</h3>
+                    <p>We use trusted third-party services to operate the app:</p>
+                    <ul>
+                        <li><strong>Google Firebase:</strong> For authentication, database management, and secure image storage.</li>
+                        <li><strong>Stripe:</strong> For processing secure credit card payments. We do <strong>not</strong> store your financial information; it is handled directly by Stripe.</li>
+                        <li><strong>Pexels API:</strong> Used for the "Discover" search feature. Search queries may be sent to Pexels to retrieve reference images.</li>
+                    </ul>
 
-                    <h3>5. Your Rights</h3>
-                    <p>You have the right to request the deletion of your account and your email address from our database at any time by contacting support.</p>
+                    <h3>4. Data Retention & Deletion</h3>
+                    <p>We believe in your right to be forgotten:</p>
+                    <ul>
+                        <li><strong>Manual Deletion:</strong> You can delete any individual image from your history at any time using the "Delete" (Trash Can) button in the Gallery or Studio. This action permanently removes the file from our servers immediately.</li>
+                        <li><strong>Account Deletion:</strong> You may request full account deletion by contacting support. This will wipe your credits, history, and all stored images.</li>
+                    </ul>
                 </div>
 
                 <!-- TERMS OF SERVICE PAGE -->
                 <div id="tos" class="page-section">
                     <h2>Terms of Service</h2>
-                    <p class="last-updated">Last Updated: December 2, 2025</p>
+                    <p class="last-updated">Last Updated: December 5, 2025</p>
 
-                    <p>By downloading or using the CosplayAI app, you agree to the terms outlined below. Please read them carefully.</p>
+                    <p>By using CosplayAI, you agree to these terms. Please read them carefully.</p>
 
                     <h3>1. Service Description</h3>
-                    <p>CosplayAI provides an interface to generate AI-modified images. The core technology powering this application is the <strong>Google Gemini API</strong>. We act as a facilitator to help you utilize this technology easily.</p>
+                    <p>CosplayAI is an AI-powered image editing tool. We provide a platform for users to upload images and use generative AI to modify outfits, poses, backgrounds, and facial expressions.</p>
 
-                    <h3>2. Credits and Accounts</h3>
+                    <h3>2. Ownership & License</h3>
                     <ul>
-                        <li><strong>Account Requirement:</strong> You must provide a valid email address to use the app. This is required to track your available generation credits.</li>
-                        <li><strong>Credits:</strong> The service operates on a credit basis. Credits are deducted for every generation request sent to the API.</li>
-                        <li><strong>Refunds:</strong> All purchases are processed via the Google Play Store and are subject to their standard refund policies.</li>
+                        <li><strong>Your Content:</strong> You retain full ownership of the images you upload.</li>
+                        <li><strong>Generated Assets:</strong> Subject to applicable laws, you own the rights to the images you generate using CosplayAI.</li>
+                        <li><strong>License to Us:</strong> By using the app, you grant CosplayAI a limited, non-exclusive license to host, store, and process your images solely for the purpose of providing the Service (e.g., displaying them in your Gallery/History).</li>
                     </ul>
 
-                    <h3>3. Acceptable Use Policy</h3>
-                    <p>While we do not store your images, the Google Gemini API utilizes safety filters. By using this app, you agree NOT to:</p>
+                    <h3>3. Acceptable Use</h3>
+                    <p>You agree not to use the service to generate:</p>
                     <ul>
-                        <li>Attempt to generate sexually explicit, illegal, or violent content.</li>
-                        <li>Use the service to harass, bully, or defame others.</li>
+                        <li>Content that is illegal, sexually explicit (NSFW), hateful, or violent.</li>
+                        <li>Deepfakes intended to deceive, harass, or defame others.</li>
+                        <li>Images infringing on the intellectual property or privacy rights of others.</li>
                     </ul>
-                    <p>Violation of these terms may result in the suspension of your account and forfeiture of remaining credits.</p>
+                    <p>We reserve the right to suspend accounts found in violation of these rules.</p>
 
-                    <h3>4. Intellectual Property</h3>
-                    <p>You retain full ownership of the original photos you upload. You grant CosplayAI and the Gemini API a temporary, non-exclusive right to process the image solely for the purpose of fulfilling your request.</p>
+                    <h3>4. Credits and Payments</h3>
+                    <ul>
+                        <li><strong>Currency:</strong> Services are purchased using "Credits".</li>
+                        <li><strong>Payment Processing:</strong> All payments are processed securely via <strong>Stripe</strong>.</li>
+                        <li><strong>Refunds:</strong> Digital goods (Credits) are generally non-refundable once purchased, except where required by law. If you experience technical issues, please contact support immediately.</li>
+                    </ul>
 
-                    <h3>5. Limitation of Liability</h3>
-                    <p>CosplayAI is provided "as is". Since image generation is handled by the third-party Gemini API, we cannot guarantee the quality, accuracy, or specific outcome of any generation. We are not liable for any dissatisfaction with the AI's artistic interpretation.</p>
+                    <h3>5. Disclaimer of Warranties</h3>
+                    <p>The Service is provided "as is". Artificial Intelligence is experimental. We cannot guarantee that every generation will be perfect, anatomically correct, or exactly as prompted. Occasional artifacts (e.g., distorted hands or eyes) are an inherent part of current AI technology and are not grounds for refunds.</p>
 
-                    <h3>6. Changes to Terms</h3>
-                    <p>We reserve the right to update these terms. Continued use of the app after changes implies acceptance of the new terms.</p>
+                    <h3>6. External Services</h3>
+                    <p>Our app includes a "Discover" feature powered by Pexels. Content accessed via Pexels is subject to the Pexels License. We are not responsible for content hosted by third-party services.</p>
+
+                    <h3>7. Limitation of Liability</h3>
+                    <p>CosplayAI shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the service or inability to access your history.</p>
                 </div>
 
                 <!-- Contact Section -->
                 <div class="contact-box">
                     <strong>Have Questions?</strong>
-                    <p style="margin-top: 5px; margin-bottom: 0;">If you have any questions regarding our Privacy Policy or Terms of Service, please contact us at:</p>
+                    <p style="margin-top: 5px; margin-bottom: 0;">If you have any questions regarding your data or these terms, please contact us at:</p>
                     <a href="mailto:support@cosplayai.com" style="color: var(--primary); font-weight: bold; text-decoration: none;">support@cosplayai.com</a>
                 </div>
 
@@ -307,20 +198,14 @@
 
     <script>
         function switchTab(tabId) {
-            // 1. Hide all sections
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
-
-            // 2. Deactivate all buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-
-            // 3. Show selected section
             document.getElementById(tabId).classList.add('active');
-
-            // 4. Activate selected button
+            
             const buttons = document.querySelectorAll('.tab-btn');
             if(tabId === 'privacy') {
                 buttons[0].classList.add('active');
@@ -331,7 +216,6 @@
             }
         }
 
-        // Handle URL Hash on Load
         window.onload = function() {
             if(window.location.hash === '#tos') {
                 switchTab('tos');
